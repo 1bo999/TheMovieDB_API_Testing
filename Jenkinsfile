@@ -1,25 +1,13 @@
 pipeline {
     agent any
-
+    tools {
+        maven 'Maven3'
+    }
     stages {
-
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/1bo999/TheMovieDB_API_Testing.git', branch: 'master'
-            }
-        }
-
         stage('Run Test') {
             steps {
-                bat 'mvn clean test'
+                bat "mvn clean test"
             }
         }
-
-        stage('Allure Report') {
-            steps {
-                allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
-            }
-        }
-
     }
 }
