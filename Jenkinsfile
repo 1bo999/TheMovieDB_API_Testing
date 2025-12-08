@@ -6,18 +6,21 @@ tools {
 }
 
 stages {
-    stage('Checkout')
+    stage('Checkout') {
         git branch: 'main',
         url: 'https://github.com/1bo999/TheMovieDB_API_Testing.git'
+    }
 
-    stage('Run Test')
+    stage('Run Test') {
         bat 'mvn clean test'
+        }
 
 
-    stage('Generate Allure Report')
+    stage('Generate Allure Report') {
         allure([
              results: [[path: 'target/allure-results']]
         ])
+        }
 
 }
 
