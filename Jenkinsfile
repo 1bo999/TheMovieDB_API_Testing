@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/1bo999/TheMovieDB_API_Testing.git', branch: 'main'
+                git url: 'https://github.com/1bo999/TheMovieDB_API_Testing.git', branch: 'master'
             }
         }
 
