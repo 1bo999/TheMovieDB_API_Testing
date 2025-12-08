@@ -17,9 +17,12 @@ stages {
 
 
     stage('Generate Allure Report') {
-        allure([
-             results: [[path: 'target/allure-results']]
-        ])
+
+        steps {
+            allure([
+                 results: [[path: 'target/allure-results']]
+            ])
+            }
         }
 
 }
